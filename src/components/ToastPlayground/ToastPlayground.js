@@ -18,6 +18,10 @@ function ToastPlayground() {
     setToasts([...toasts, { id, message, variant }]);
   };
 
+  const dismissToast = (id) => {
+    setToasts(toasts.filter((toast) => toast.id !== id));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     pushToast(message, toastVariant);
@@ -34,7 +38,7 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      <ToastShelf toasts={toasts} setToasts={setToasts} />
+      <ToastShelf toasts={toasts} dismissToast={dismissToast} />
 
       <form onSubmit={handleSubmit}>
         <div className={styles.controlsWrapper}>

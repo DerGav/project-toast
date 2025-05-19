@@ -3,11 +3,7 @@ import React from "react";
 import Toast from "../Toast";
 import styles from "./ToastShelf.module.css";
 
-function ToastShelf({ toasts = [], setToasts = () => {} }) {
-  const handleDismiss = (id) => {
-    setToasts(toasts.filter((toast) => toast.id !== id));
-  };
-
+function ToastShelf({ toasts = [], dismissToast = () => {} }) {
   return (
     <ol className={styles.wrapper}>
       {toasts.map(({ id, message, variant }) => (
@@ -15,7 +11,7 @@ function ToastShelf({ toasts = [], setToasts = () => {} }) {
           <Toast
             variant={variant}
             onDismiss={() => {
-              handleDismiss(id);
+              dismissToast(id);
             }}
           >
             {message}
