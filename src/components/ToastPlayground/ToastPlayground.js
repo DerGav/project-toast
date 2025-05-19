@@ -6,10 +6,11 @@ import ToastShelf from "../ToastShelf";
 import styles from "./ToastPlayground.module.css";
 
 const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
+const DEFAULT_VARIANT = VARIANT_OPTIONS[0];
 
 function ToastPlayground() {
   const [message, setMessage] = React.useState("");
-  const [toastVariant, setToastVariant] = React.useState("notice");
+  const [toastVariant, setToastVariant] = React.useState(DEFAULT_VARIANT);
   const [toasts, setToasts] = React.useState([]);
 
   const pushToast = (message, variant) => {
@@ -23,7 +24,7 @@ function ToastPlayground() {
 
     // reset ui
     setMessage("");
-    setToastVariant("notice");
+    setToastVariant(DEFAULT_VARIANT);
   };
 
   return (
