@@ -20,11 +20,12 @@ function ToastPlayground() {
       </header>
 
       <Toast
-        message={message}
         variant={toastVariant}
         visible={showToast}
         onDismiss={() => setShowToast(false)}
-      />
+      >
+        {message}
+      </Toast>
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
