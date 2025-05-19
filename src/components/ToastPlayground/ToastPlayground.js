@@ -1,7 +1,7 @@
 import React from "react";
 
 import Button from "../Button";
-import Toast from "../Toast";
+import ToastShelf from "../ToastShelf";
 
 import styles from "./ToastPlayground.module.css";
 
@@ -19,13 +19,12 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      <Toast
-        variant={toastVariant}
-        visible={showToast}
-        onDismiss={() => setShowToast(false)}
-      >
-        {message}
-      </Toast>
+      <ToastShelf
+        toasts={[
+          { message: "hi", variant: "notice" },
+          { message: "world!", variant: "warning" },
+        ]}
+      />
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>

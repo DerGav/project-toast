@@ -18,21 +18,12 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({
-  children,
-  variant = "notice",
-  visible = false,
-  onDismiss = () => {},
-}) {
+function Toast({ children, variant = "notice", onDismiss = () => {} }) {
   if (!styles[variant] || !ICONS_BY_VARIANT[variant]) {
     throw Error("Unnrecognized variant!");
   }
 
   const Icon = ICONS_BY_VARIANT[variant];
-
-  if (!visible) {
-    return <></>;
-  }
 
   return (
     <div className={`${styles.toast} ${styles[variant]}`}>
