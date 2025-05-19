@@ -18,11 +18,17 @@ const ICONS_BY_VARIANT = {
   error: AlertOctagon,
 };
 
-function Toast({ message }) {
+function Toast({ message, variant = "notice" }) {
+  if (!styles[variant] || !ICONS_BY_VARIANT[variant]) {
+    throw Error("Unnrecognized variant!");
+  }
+
+  const Icon = ICONS_BY_VARIANT[variant];
+
   return (
-    <div className={`${styles.toast} ${styles.notice}`}>
+    <div className={`${styles.toast} ${styles[variant]}`}>
       <div className={styles.iconContainer}>
-        <Info size={24} />
+        <Icon size={24} />
       </div>
       <p className={styles.content}>{message}</p>
       <button className={styles.closeButton}>

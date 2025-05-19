@@ -18,7 +18,7 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      <Toast message={message} />
+      <Toast message={message} variant={toastVariant} />
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
