@@ -17,9 +17,11 @@ function ToastProvider({ children }) {
     setToasts(toasts.filter((toast) => toast.id !== id));
   };
 
-  useKeyDown("Escape", () => {
+  const dismissAllToasts = React.useCallback(() => {
     setToasts([]);
-  });
+  }, []);
+
+  useKeyDown("Escape", dismissAllToasts);
 
   return (
     <ToastContext
