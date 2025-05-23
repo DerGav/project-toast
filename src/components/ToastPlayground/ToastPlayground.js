@@ -9,14 +9,14 @@ const VARIANT_OPTIONS = ["notice", "warning", "success", "error"];
 const DEFAULT_VARIANT = VARIANT_OPTIONS[0];
 
 function ToastPlayground() {
-  const { pushToast } = React.use(ToastContext);
+  const { createToast } = React.use(ToastContext);
 
   const [message, setMessage] = React.useState("");
   const [toastVariant, setToastVariant] = React.useState(DEFAULT_VARIANT);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    pushToast(message, toastVariant);
+    createToast(message, toastVariant);
 
     // reset ui
     setMessage("");

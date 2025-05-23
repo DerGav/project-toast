@@ -7,7 +7,7 @@ export const ToastContext = React.createContext();
 function ToastProvider({ children }) {
   const [toasts, setToasts] = React.useState([]);
 
-  const pushToast = (message, variant) => {
+  const createToast = (message, variant) => {
     const id = crypto.randomUUID();
     setToasts([...toasts, { id, message, variant }]);
   };
@@ -19,7 +19,7 @@ function ToastProvider({ children }) {
   return (
     <ToastContext
       value={{
-        pushToast,
+        createToast,
         dismissToast,
       }}
     >
